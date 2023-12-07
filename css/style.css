@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+body {
+  font-size: 16px;
+  font-family: Inter;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  height: 100%;
+  padding-left: calc(5px + 10 * (100vw - 320px) / 1120);
+  padding-right: calc(5px + 10 * (100vw - 320px) / 1120);
+}
+
+.header {
+  background: linear-gradient(90deg, #196b78, #14a6bd);
+  height: calc(120px + 175 * (100vw - 320px) / 1120);
+}
+.header__body {
+  position: relative;
+  text-align: center;
+  height: 100%;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.header__title {
+  color: #ccf8ff;
+  font-size: calc(30px + 42 * (100vw - 320px) / 1120);
+  padding-top: calc(30px + 34 * (100vw - 320px) / 1120);
+}
+.header__subtitle {
+  color: rgba(204, 248, 255, 0.7490196078);
+  font-size: calc(12px + 9 * (100vw - 320px) / 1120);
+  padding-top: calc(5px + 15 * (100vw - 320px) / 1120);
+}
+
+.main {
+  background-color: #edeef3;
+  min-height: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.main__body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.main__input-field {
+  position: relative;
+  top: -25px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: calc(300px + 400 * (100vw - 320px) / 1120);
+  height: -moz-fit-content;
+  height: fit-content;
+  border: #ced4da 1px solid;
+  border-radius: 4px;
+  background-color: #fff;
+}
+.main__input {
+  padding-left: calc(15px + 5 * (100vw - 320px) / 1120);
+  padding-rght: calc(15px + 5 * (100vw - 320px) / 1120);
+  padding-top: 10px;
+  padding-bottom: 5px;
+  color: #3f444a;
+  font-size: calc(16px + 5 * (100vw - 320px) / 1120);
+}
+.main__input::-moz-placeholder {
+  color: #abb5be;
+}
+.main__input::placeholder {
+  color: #abb5be;
+}
+.main__tag-list {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  width: 100%;
+}
+.main__tag {
+  transition: all 0.5s;
+  background-color: #14a6bd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 15px;
+  height: 30px;
+  margin: 0 5px 10px 5px;
+}
+.main__cards {
+  display: flex;
+  justify-content: center;
+}
+.main__cards-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.main__card {
+  transition: all 0.5s;
+  width: 300px;
+  height: 180px;
+  padding: 25px;
+  margin: 10px;
+  border: 1px #ced4da solid;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 4px 4px #dee2e6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 960px) {
+  .main__cards-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 640px) {
+  .main__cards-list {
+    grid-template-columns: 1fr;
+  }
+}
+.tag__text {
+  color: #ccf8ff;
+}
+.tag__crosslines {
+  position: relative;
+  height: 16px;
+  width: 16px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.tag__crosslines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 16px;
+  transform: rotate(45deg);
+  background-color: #fff;
+}
+.tag__crosslines::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 16px;
+  transform: rotate(-45deg);
+  background-color: #fff;
+}
+
+.card__symbol {
+  font-size: 48px;
+}
+.card__title {
+  font-size: 17px;
+}
+.card__tags {
+  font-size: 12px;
+}

@@ -1,0 +1,191 @@
+@import "nullstyle.scss";
+@import "mixins.scss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+body {
+    font-size: 16px;
+    font-family: Inter;
+}
+.wrapper {
+    height: 100%;
+    width: 100%;
+}
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    height: 100%;
+    @include adaptive-value("padding-left", 15, 5, 0);
+    @include adaptive-value("padding-right", 15, 5, 0);
+}
+
+.header {
+    background: linear-gradient(90deg, $secondaryColor, $primaryColor);
+    @include adaptive-value("height", 295, 120, 0);
+
+    &__body {
+        position: relative;
+        text-align: center;
+        height: 100%;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        color: $primaryColorFont;
+        @include adaptive-value("font-size", 72, 30, 0);
+        @include adaptive-value("padding-top", 64, 30, 0);
+    }
+
+    &__subtitle {
+        color: $secondaryColorFont;
+        @include adaptive-value("font-size", 21, 12, 0);
+        @include adaptive-value("padding-top", 20, 5, 0);
+    }
+}
+
+.main {
+    background-color: #edeef3;
+    min-height: 100%;
+    height: fit-content;
+
+    &__body {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    &__input-field {
+        position: relative;
+        top: -25px;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        @include adaptive-value("width", 700, 300, 0);
+        height: fit-content;
+        border: $borderColor 1px solid;
+        border-radius: 4px;
+        background-color: #fff;
+    }
+
+    &__input {
+        @include adaptive-value("padding-left", 20, 15, 0);
+        @include adaptive-value("padding-rght", 20, 15, 0);
+        padding-top: 10px;
+        padding-bottom: 5px;
+        color: $primaryDarkColorFont;
+        @include adaptive-value("font-size", 21, 16, 0);
+        &::placeholder {
+            color: #abb5be;
+        }
+    }
+
+    &__tag-list {
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: stretch;
+        width: 100%;
+    }
+
+    &__tag {
+        transition: all 0.5s;
+        background-color: $primaryColor;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 15px;
+        width: fit-content;
+        padding: 0 15px;
+        height: 30px;
+        margin: 0 5px 10px 5px;
+    }
+    &__cards {
+        display: flex;
+        justify-content: center;
+    }
+    &__cards-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: fit-content;
+    }
+
+    &__card {
+        transition: all 0.5s;
+        width: 300px;
+        height: 180px;
+        padding: 25px;
+        margin: 10px;
+        border: 1px $borderColor solid;
+        border-radius: 4px;
+        background-color: #fff;
+        box-shadow: 0 4px 4px #dee2e6;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .main {
+        &__cards-list {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    .main {
+        &__cards-list {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+.tag {
+    &__text {
+        color: $primaryColorFont;
+    }
+
+    &__crosslines {
+        position: relative;
+        height: 16px;
+        width: 16px;
+        margin-left: 5px;
+        cursor: pointer;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 16px;
+            transform: rotate(45deg);
+            background-color: #fff;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 16px;
+            transform: rotate(-45deg);
+            background-color: #fff;
+        }
+    }
+}
+
+.card {
+    &__symbol {
+        font-size: 48px;
+    }
+
+    &__title {
+        font-size: 17px;
+    }
+
+    &__tags {
+        font-size: 12px;
+    }
+}
