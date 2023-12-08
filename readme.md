@@ -6,25 +6,26 @@
 Отоброжает все актуальные эмоджи из локального хранилища. Осуществляется поиск по названию и ключевым словам. Есть возможность комбинировать запросы, чтобы сузить круг поиска.
 
 ## Структура
+```
+./assets
+../img
+...favicon.png
 
-- assets
---> img
----> favicon.png
+./css
+..style.css
 
-- css
---> style.css
+./data
+..data.js
 
-- data
---> data.js
+./js
+..main.js
 
-- js
---> main.js
+./scss
+..mixins.scss
+..nullstyle.scss
+..style.scss
 
-- scss
---> mixins.scss
---> nullstyle.scss
---> style.scss
-
-index.html
-package.json
-package-lock.json
+.index.html
+.package.json
+.package-lock.json
+```
