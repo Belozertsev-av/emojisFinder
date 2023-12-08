@@ -157,7 +157,6 @@ body {
   padding-left: calc(15px + 5 * (100vw - 320px) / 1120);
   padding-rght: calc(15px + 5 * (100vw - 320px) / 1120);
   padding-top: 10px;
-  padding-bottom: 5px;
   color: #3f444a;
   font-size: calc(16px + 5 * (100vw - 320px) / 1120);
 }

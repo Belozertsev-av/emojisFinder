@@ -74,7 +74,6 @@ body {
         @include adaptive-value("padding-left", 20, 15, 0);
         @include adaptive-value("padding-rght", 20, 15, 0);
         padding-top: 10px;
-        padding-bottom: 5px;
         color: $primaryDarkColorFont;
         @include adaptive-value("font-size", 21, 16, 0);
         &::placeholder {

@@ -17,8 +17,10 @@ function fetchData(data, startItem, tags = []) {
         let tempTag = ''
         for (let i = 0; i < tags.length; i++) {
             for (let j = 0; j < data.length; j++) {
-                if ((data[j].title.includes(tags[i]) || data[j].keywords.includes(tags[i])) &&
-                    (data[j].title.includes(tempTag) || data[j].keywords.includes(tempTag))) {
+                if ((data[j].title.toLowerCase().includes(tags[i].toLowerCase()) ||
+                    data[j].keywords.toLowerCase().includes(tags[i].toLowerCase())) &&
+                    (data[j].title.toLowerCase().includes(tempTag.toLowerCase()) ||
+                        data[j].keywords.toLowerCase().includes(tempTag.toLowerCase()))) {
                     if (!tempData.includes(data[j])) {
                         tempData.push(data[j])
                     }
@@ -30,11 +32,8 @@ function fetchData(data, startItem, tags = []) {
             }
             tempTag = tags[i]
         }
-        console.log(tempData)
         filteredData = tempData
         drawCard(startItem, tempData)
-
-
     }
 
 }
@@ -78,24 +77,26 @@ input.addEventListener('change', (ev) => {
     startItem = 0
     fetchData(data, 0, currentTags)
 })
-document.querySelector('.main__input-field').addEventListener('change', () => {
-    for (let i = 0; i < currentTags.length; i++) {
-        document.getElementById(currentTags[i]).addEventListener('click', (e) => {
+document.addEventListener('change', () => {
+    document.querySelectorAll('.tag__crosslines').forEach(element => {
+        element.addEventListener('click', (e) => {
             e.target.parentElement.remove()
-            currentTags.splice(i, 1)
+
+            currentTags = currentTags.filter((tag) => tag != e.target.id)
+
             document.querySelectorAll('.main__card').forEach(element => {
                 element.remove()
             });
             startItem = 0
             fetchData(data, 0, currentTags)
         })
-    }
+    });
 })
 
 // Отрисовка карточек
 
 function drawCard(startItem, data) {
-    let addNum = ((data.length - startItem) < 20) ? data.length : 20
+    let addNum = ((data.length - startItem) < 20) ? data.length - startItem : 20
     if (data != []) {
         for (let i = startItem; i < startItem + addNum; i++) {
             cardList.innerHTML +=
